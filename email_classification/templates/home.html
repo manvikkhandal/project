@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ham or Spam Detection</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        .header {
+            background: url('https://kinsta.com/wp-content/uploads/2017/09/email-marketing-software.png') no-repeat center center;
+            background-size: cover;
+            color: #ffffff;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+        .detection-area {
+            background: url('https://selzy.com/en/blog/wp-content/uploads/2022/06/email-marketing-campaign_1200.png') no-repeat center center;
+            background-size: cover;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            color: #fff;
+        }
+        .form-control {
+            border-radius: 0.25rem;
+            border: 1px solid #ced4da;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+        .footer {
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .footer a {
+            margin: 0 10px;
+            color: #fff;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            color: #007bff;
+        }
+        .footer i {
+            transition: color 0.3s;
+        }
+        .footer i:hover {
+            color: #00aced;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Ham or Spam Detection</h1>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="detection-area">
+                    <form action="{{ url_for('prediction') }}" method="post">
+                            <textarea id="emailContent" name="emailContent" required  rows="6" cols="90"></textarea>
+                        <button type="submit" class="button">Classify Email</button>
+                    </form>
+                    <div id="result" class="mt-4">
+                        <!-- Result will be displayed here -->
+                    </div>
+                </div>
+
+     <div class="container">
+         <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="description mt-4">
+                    <h2>About the Ham or Spam Detection Tool</h2>
+                    <p>
+                        This tool is designed to help you determine whether a given text message is considered 
+                        "ham" (non-spam) or "spam". Spam messages are unsolicited, often irrelevant or inappropriate 
+                        messages sent over the internet to a large number of users. Ham messages are legitimate and 
+                        relevant communications. 
+                    </p>
+                    <p>
+                        By entering your text into the form and clicking "Check", the tool will analyze the content 
+                        and provide a classification of whether it is more likely to be ham or spam. This can be useful 
+                        for managing your email or messaging systems, ensuring that important communications are not 
+                        lost amidst spam.
+                    </p>
+                    </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div>
+            <a href="https://www.linkedin.com/in/your-profile-id" target="_blank">
+                <i class="fab fa-linkedin fa-2x"></i>
+            </a>
+            <a href="https://github.com/your-username" target="_blank">
+                <i class="fab fa-github fa-2x"></i>
+            </a>
+            <a href="mailto:your-email@gmail.com">
+                <i class="fas fa-envelope fa-2x"></i>
+            </a>
+        </div>
+        <p class="mt-2">your-manvik30@gmail.com</p>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
