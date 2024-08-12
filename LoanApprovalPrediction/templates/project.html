@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Loan Application</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('/static/1000004129.jpg'); /* Replace with your background image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        header {
+            background-color: purple;
+            color: white;
+        }
+
+        .footer {
+            text-align: center;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="#">LoanApp</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="row justify-content-center align-items-center min-vh-100">
+            <div class="col-md-8 col-lg-6">
+                <div class="card p-4 shadow">
+                    <h2 class="text-center mb-4">Bank Loan Application</h2>
+                    <form id="loanForm" action="{{ url_for('submit') }}" method="post">
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="no_of_dependents">Number of Dependents:</label>
+                            <input type="number" class="form-control" id="no_of_dependents" name="no_of_dependents" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="income_annum">Annual Income (₹):</label>
+                            <input type="number" class="form-control" id="income_annum" name="income_annum" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="loanAmount">How much loan you want (₹):</label>
+                            <input type="number" class="form-control" id="loanAmount" name="loanAmount" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="loan_term">LOAN TERM:</label>
+                            <input type="number" class="form-control" id="loan_term" name="loan_term" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cibil_score">CIBIL Score:</label>
+                            <input type="number" class="form-control" id="cibil_score" name="cibil_score" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="residential_assets_value">Value of Residential Assets (₹):</label>
+                            <input type="number" class="form-control" id="residential_assets_value" name="residential_assets_value" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="commercial_assets_value">Value of Commercial Assets (₹):</label>
+                            <input type="number" class="form-control" id="commercial_assets_value" name="commercial_assets_value" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="luxury_assets_value">Value of Luxury Assets (₹):</label>
+                            <input type="number" class="form-control" id="luxury_assets_value" name="luxury_assets_value" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bank_asset_value">Value of Bank Assets (₹):</label>
+                            <input type="number" class="form-control" id="bank_asset_value" name="bank_asset_value" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Education:</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="education" id="education" value="Graduate">
+                                <label class="form-check-label" for="education">Graduate</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="education" id="education" value="Not Graduate">
+                                <label class="form-check-label" for="education">Not Graduate</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Are you self-employed?</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="self_employed" id="self_employedYes" value="Yes">
+                                <label class="form-check-label" for="self_employedYes">Yes</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="self_employed" id="self_employedNo" value="No">
+                                <label class="form-check-label" for="self_employedNo">No</label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-4" style="margin-top: 100px;">
+        <div class="container">
+            <p>&copy; 2024 YourCompany. All rights reserved.</p>
+            <div>
+                <a href="https://www.linkedin.com/in/your-id" class="text-white me-3">
+                    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" width="24">
+                </a>
+                <a href="https://github.com/your-id" class="text-white">
+                    <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" width="24">
+                </a>
+            </div>
+            <div>
+                <a href="#" class="text-white me-3">Privacy Policy</a>
+                <a href="#" class="text-white">FAQs</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

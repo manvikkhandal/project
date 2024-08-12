@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Status Check</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .hero-section {
+            background-image: url('/static/1000004129.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            color: rgb(55, 8, 44);
+            height: 90vh;
+            padding-top: 10rem;
+            padding-bottom: 10rem;
+        }
+        .hero-section h1 {
+            font-family: 'Arial', sans-serif; /* Change to your preferred font */
+            font-size: 3.5rem; /* Change font size */
+            font-weight: 700; /* Increased font weight */
+        }
+        .hero-section h3 {
+            font-family: 'Arial', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+        }
+        .hero-section .btn {
+            font-size: 2rem; /* Increase button font size */
+            padding: 15px 30px; /* Increase button padding */
+            background-color: #6f42c1; /* Purple background */
+            color: #ffffff; /* White text */
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .hero-section .btn:hover {
+            background-color: #5a2c91; /* Darker purple on hover */
+        }
+        .content-box {
+            height: 200px; /* Adjust the height as needed */
+            background-size: cover;
+            background-position: center;
+            color: rgb(255, 255, 255);
+            transition: transform 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .content-box:hover {
+            transform: scale(1.05);
+        }
+        #feedback {
+            background-image: url('/static/feddback.jpg'); /* Replace with your image URL */
+        }
+        #fastLoan {
+            background-image: url('/static/fastloan.jpg'); /* Replace with your image URL */
+        }
+        #newOffers {
+            background-image: url('/static/newo.jpg'); /* Replace with your image URL */
+        }
+        header {
+            background-color: purple;
+            color: white;
+        }
+        .description-section {
+            background-color: #E6E6FA; /* Light purple background */
+            padding: 60px 0;
+        }
+        .description-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .description-section p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #555;
+        }
+        .description-section h3 {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            color: #333;
+        }
+        .description-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        .feature-list li {
+            background: #fff;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .feature-list li::before {
+            content: "\f00c";
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            color: #4CAF50;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="#">LoanApp</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-center py-5" id="hero-section">
+        <div class="container">
+            <h1>Check Your Loan Status</h1>
+            <h3>Find out if your bank loan will be approved or rejected in minutes</h3>
+            <a href="/project" class="btn btn-dark">Get Started</a>
+        </div>
+    </section>
+
+     <!-- Description Section -->
+     <section class="description-section">
+        <div class="container description-content text-center">
+            <h1>Why Choose Our Loan Approval Checker?</h1>
+            <p>Welcome to Loan Approval Predictor, your go-to online tool for assessing the likelihood of your loan application being approved.</p>
+            <p>Our intuitive website provides a user-friendly interface where you can input essential details about your loan application, such as your credit score, income, existing debt, and loan amount.</p>
+            <p>By leveraging advanced algorithms and data analytics, our platform evaluates your inputs against industry standards and historical data to offer a personalized prediction on your loan approval chances.</p>
+            <h3>Features:</h3>
+            <ul class="feature-list">
+                <li>Easy Input: Simple forms to enter your loan details and financial information.</li>
+                <li>Instant Prediction: Receive immediate feedback on your loan approval likelihood.</li>
+                <li>Detailed Insights: Understand key factors influencing your approval chances.</li>
+                <li>Privacy and Security: Your data is securely processed and never shared.</li>
+            </ul>
+            <p>Plan your next financial move with confidence. Try Loan Approval Predictor today to get a clear picture of your loan application status before you apply!</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <div class="content-box p-4 rounded" id="feedback">
+                        <h3>Feedback</h3>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="content-box p-4 rounded" id="fastLoan">
+                        <h3>Fast Loan</h3>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="content-box p-4 rounded" id="newOffers">
+                        <h3>New Offers</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4">
+        <div class="container">
+            <p>&copy; 2024 Loan App. All rights reserved.</p>
+            <div>
+                <a href="https://www.linkedin.com/in/your-id" class="text-white me-3">
+                    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" width="22">
+                </a>
+                <a href="https://github.com/your-id" class="text-white">
+                    <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" width="22">
+                </a>
+            </div>
+            <div>
+                <a href="#" class="text-white me-3">Privacy Policy</a>
+                <a href="#" class="text-white">FAQs</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
