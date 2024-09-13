@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate India - Bangalore</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Bootstrap CDN -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .hidden {
+            display: none;
+        }
+
+        .active-btn {
+            background-color: #dc2626;
+            /* Red for active */
+            color: white;
+        }
+
+        .inactive-btn {
+            background-color: #e5e7eb;
+            /* Gray for inactive */
+            color: #374151;
+        }
+
+        .card {
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-body img {
+            max-width: 80px;
+        }
+
+        .card-body p {
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- Header Section -->
+    <header class="bg-white py-4 shadow">
+        <div class="container mx-auto flex justify-between items-center">
+            <div>
+                <h1 class="text-xl font-bold text-blue-700"><a href="/" style="text-decoration: none;">RealEstate<span
+                            style="color: #dc2626;">India</span></a></h1>
+            </div>
+            <div>
+                <button class="ml-2 px-4 py-2 bg-blue-700 text-white rounded" data-toggle="modal"
+                    data-target="#signIn">Sign In</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Section -->
+    <section class="bg-blue-50 py-10"
+        style="background-image:url(https://static.realestateindia.com/rei/images/header_bg1.jpg);height: 280px;">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-semibold">Search and Buy Real Estate in <span
+                    style="color: #dc2626;">Bangalore</span></h2>
+            <div class="mt-4">
+                <button type="submit" class="px-6 py-2 bg-blue-700 text-white rounded-md"><a href="/buy"
+                        style="color: white;text-decoration: none;">Buy</a></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Section -->
+    <section class="py-12">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-blue-700 text-white text-center p-6 rounded-lg">
+                <h3 class="text-lg font-semibold">Post Your Property Ads for Free</h3>
+                <p>Sell/Rent out your property & Get unlimited responses</p>
+                <a href="#" class="mt-4 inline-block bg-white text-blue-700 px-4 py-2 rounded">List Your Property</a>
+            </div>
+            <div class="bg-pink-600 text-white text-center p-6 rounded-lg">
+                <h3 class="text-lg font-semibold">Find Your Dream Property</h3>
+                <p>Get the list of properties matching to your requirement</p>
+                <a href="#" class="mt-4 inline-block bg-white text-pink-600 px-4 py-2 rounded">Post Your Requirement</a>
+            </div>
+            <div class="bg-yellow-500 text-white text-center p-6 rounded-lg">
+                <h3 class="text-lg font-semibold">5719+ Top Property Dealers</h3>
+                <p>Connect with genuine property dealers in your city</p>
+                <a href="#" class="mt-4 inline-block bg-white text-yellow-500 px-4 py-2 rounded">Explore Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties Section -->
+    <section class="py-12 bg-gray-100">
+        <div class="container mx-auto text-center">
+            <h2 class="text-center mb-4" style="color: #d9534f;">Properties for Sale in Bangalore</h2>
+            <div class="flex justify-center space-x-4 mt-6">
+                <button id="popularBtn" class="px-4 py-2 active-btn rounded"
+                    onclick="showProperties('mostPopular')">Most Popular</button>
+                <button id="budgetBtn" class="px-4 py-2 inactive-btn rounded" onclick="showProperties('byBudget')">By
+                    Budget</button>
+                <button id="typeBtn" class="px-4 py-2 inactive-btn rounded" onclick="showProperties('byType')">By
+                    Property Type</button>
+                <button id="bhkBtn" class="px-4 py-2 inactive-btn rounded" onclick="showProperties('byBhk')">By
+                    BHK</button>
+            </div>
+
+            <!-- Properties Grid (Most Popular) -->
+            <div id="mostPopular" class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <img src="./static/photos/property1.jpg" alt="Property 1"
+                        class="w-full h-48 object-cover rounded-md">
+                    <h4 class="mt-4 text-xl font-semibold">Budget within 40 Lakhs</h4>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <img src="./static/photos/property6.jpg" alt="Property 2"
+                        class="w-full h-48 object-cover rounded-md">
+                    <h4 class="mt-4 text-xl font-semibold">3 BHK Apartments</h4>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <img src="./static/photos/property7.jpg" alt="Property 3"
+                        class="w-full h-48 object-cover rounded-md">
+                    <h4 class="mt-4 text-xl font-semibold">Flats</h4>
+                </div>
+            </div>
+
+            <!-- Properties Grid (By Budget) -->
+            <div id="byBudget" class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 hidden">
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <img src="./static/photos/property2.jpg" alt="Budget Property 1"
+                        class="w-full h-48 object-cover rounded-md">
+                    <h4 class="mt-4 text-xl font-semibold">Budget within 30 Lakhs</h4>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <img src="./static/photos/property1.jpg" alt="Budget Property 2"
+                        class="w-full h-48 object-cover rounded-md">
+                    <h4 class="mt-4 text-xl font-semibold">Budget within 40 Lakhs</h4>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <img src="./static/photos/property3.jpg" alt="Budget Property 3"
+                        class="w-full h-48 object-cover rounded-md">
+                    <h4 class="mt-4 text-xl font-semibold">Budget within 50 Lakhs</h4>
+                </div>
+            </div>
+
+            <!-- Properties Grid (By Property Type) -->
+            <div id="byType" class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 hidden">
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <img src="./static/photos/property8.jpg" alt="Type Property 1"
+                        class="w-full h-48 object-cover rounded-md">
+                    <h4 class="mt-4 text-xl font-semibold">Plots</h4>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <img src="./static/photos/property7.jpg" alt="Type Property 2"
+                        class="w-full h-48 object-cover rounded-md">
+                    <h4 class="mt-4 text-xl font-semibold">Flats</h4>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <img src="./static/photos/property9.jpg" alt="Type Property 3"
+                        class="w-full h-48 object-cover rounded-md">
+                    <h4 class="mt-4 text-xl font-semibold">House</h4>
+                </div>
+            </div>
+
+            <!-- Properties Grid (By BHK) -->
+            <div id="byBhk" class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 hidden">
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <img src="./static/photos/property12.jpg" alt="BHK Property 1"
+                        class="w-full h-48 object-cover rounded-md">
+                    <h4 class="mt-4 text-xl font-semibold">1 BHK Property</h4>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <img src="./static/photos/property11.jpg" alt="BHK Property 2"
+                        class="w-full h-48 object-cover rounded-md">
+                    <h4 class="mt-4 text-xl font-semibold">2 BHK Property</h4>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <img src="./static/photos/property10.jpg" alt="BHK Property 3"
+                        class="w-full h-48 object-cover rounded-md">
+                    <h4 class="mt-4 text-xl font-semibold">3 BHK Property</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="signIn" tabindex="-1" aria-labelledby="signInLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="signInLabel">Enter Information</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="post">
+                        <!-- Form Fields -->
+                        <div class="p-2">
+                            <div class="relative">
+                                <label for="name" class="leading-7 text-sm text-gray-900">Name :</label>
+                                <input type="text" id="name" name="name"
+                                    class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            </div>
+                        </div>
+                        <div class="p-2">
+                            <div class="relative">
+                                <label for="phone" class="leading-7 text-sm text-gray-900">Phone Number :</label>
+                                <input type="text" id="phone" name="phone"
+                                    class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            </div>
+                        </div>
+                        <div class="p-2">
+                            <div class="relative">
+                                <label for="email" class="leading-7 text-sm text-gray-900">Email id :</label>
+                                <input type="email" id="email" name="email"
+                                    class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            </div>
+                        </div>
+                        <!-- Submit Button -->
+                        <div class="p-2">
+                            <button type="submit" style="margin-top: 20px;"
+                                class="flex mx-auto text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container my-5">
+        <h2 class="text-center mb-4" style="color: #d9534f;">Real Estate Service in Bangalore</h2>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <!-- Card 1 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body d-flex flex-column align-items-center">
+                        <img src="/static/photos/agent.png" alt="Agents/Brokers Icon"
+                            style="height: 80px; width: 80px;">
+                        <h5 class="card-title mt-3">Agents / Brokers</h5>
+                        <p class="card-text text-center">Here are hassle-free solutions! Buy - Sell - Rent your property
+                        </p>
+                        <a href="#" class="btn btn-outline-primary mt-auto">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body d-flex flex-column align-items-center">
+                        <img src="/static/photos/builder.png" alt="Builders/Developers Icon"
+                            style="height: 80px; width: 80px;">
+                        <h5 class="card-title mt-3">Builders / Developers</h5>
+                        <p class="card-text text-center">List of the most trusted and reliable builders to fulfill your
+                            Dream HOME.</p>
+                        <a href="#" class="btn btn-outline-primary mt-auto">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body d-flex flex-column align-items-center">
+                        <img src="/static/photos/architects.png" alt="Architects Icon"
+                            style="height: 80px; width: 80px;">
+                        <h5 class="card-title mt-3">Architects / Architecture</h5>
+                        <p class="card-text text-center">Professional Architecture will meet your needs and
+                            expectations.</p>
+                        <a href="#" class="btn btn-outline-primary mt-auto">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body d-flex flex-column align-items-center">
+                        <img src="/static/photos/interior.png" alt="Interior Decorators Icon"
+                            style="height: 80px; width: 80px;">
+                        <h5 class="card-title mt-3">Interior Decorators</h5>
+                        <p class="card-text text-center">A one-stop solution for all your decor needs to match your
+                            lifestyle.</p>
+                        <a href="#" class="btn btn-outline-primary mt-auto">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body d-flex flex-column align-items-center">
+                        <img src="/static/photos/vastu.png" alt="Vaastu Consultant Icon"
+                            style="height: 80px; width: 80px;">
+                        <h5 class="card-title mt-3">Vaastu Consultant</h5>
+                        <p class="card-text text-center">Connect to top most Vastu consultants for right direction.</p>
+                        <a href="#" class="btn btn-outline-primary mt-auto">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body d-flex flex-column align-items-center">
+                        <img src="/static/photos/contractors.png" alt="Building Contractors Icon"
+                            style="height: 80px; width: 80px;">
+                        <h5 class="card-title mt-3">Building Contractors</h5>
+                        <p class="card-text text-center">General contractor for a home repair, remodel, or construction.
+                        </p>
+                        <a href="#" class="btn btn-outline-primary mt-auto">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 mt-12">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 RealEstateIndia. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- JavaScript for switching grids -->
+    <script>
+        function showProperties(section) {
+            // Hide all property sections
+            document.getElementById('mostPopular').classList.add('hidden');
+            document.getElementById('byBudget').classList.add('hidden');
+            document.getElementById('byType').classList.add('hidden');
+            document.getElementById('byBhk').classList.add('hidden');
+
+            // Remove active class from all buttons
+            document.getElementById('popularBtn').classList.remove('active-btn');
+            document.getElementById('budgetBtn').classList.remove('active-btn');
+            document.getElementById('typeBtn').classList.remove('active-btn');
+            document.getElementById('bhkBtn').classList.remove('active-btn');
+
+            // Add inactive styles to all buttons
+            document.getElementById('popularBtn').classList.add('inactive-btn');
+            document.getElementById('budgetBtn').classList.add('inactive-btn');
+            document.getElementById('typeBtn').classList.add('inactive-btn');
+            document.getElementById('bhkBtn').classList.add('inactive-btn');
+
+            // Show the selected property section
+            document.getElementById(section).classList.remove('hidden');
+
+            // Add active class to the clicked button
+            if (section === 'mostPopular') {
+                document.getElementById('popularBtn').classList.add('active-btn');
+                document.getElementById('popularBtn').classList.remove('inactive-btn');
+            } else if (section === 'byBudget') {
+                document.getElementById('budgetBtn').classList.add('active-btn');
+                document.getElementById('budgetBtn').classList.remove('inactive-btn');
+            } else if (section === 'byType') {
+                document.getElementById('typeBtn').classList.add('active-btn');
+                document.getElementById('typeBtn').classList.remove('inactive-btn');
+            } else if (section === 'byBhk') {
+                document.getElementById('bhkBtn').classList.add('active-btn');
+                document.getElementById('bhkBtn').classList.remove('inactive-btn');
+            }
+        }
+    </script>
+</body>
+
+</html>
