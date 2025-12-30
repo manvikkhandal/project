@@ -1,0 +1,11 @@
+gunicorn
+flask
+numpy
+pandas
+tensorflow
+Pillow
+google-generativeai
+python-dotenv
+requests
+reportlab
+scikit-learn
